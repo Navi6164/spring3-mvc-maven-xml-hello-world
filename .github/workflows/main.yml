@@ -11,4 +11,6 @@ jobs:
       - uses: actions/checkout@v2
       - name: Run a one-line script
         run: mvn package
-      
+      - name: tomcat deploy
+        run: curl -v -u admin:admin -T /home/runner/work/spring3-mvc-maven-xml-hello-world/spring3-mvc-maven-xml-hello-world/target/spring3-mvc-maven-xml-hello-world-1.2.war 'http://ec2-15-206-148-80.ap-south-1.compute.amazonaws.com:8080/manager/text/deploy?path=/githubaction_tomcat_spring&update=true'
+
